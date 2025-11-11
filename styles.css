@@ -16,14 +16,19 @@ html{
 *{box-sizing:border-box}
 
 body{
-  margin:0; padding:0;
+  margin:0;
+  padding:0;
   color:var(--text);
   background:linear-gradient(180deg,#0b0c10,var(--bg));
   font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,Arial;
   line-height:1.6;
 }
 
-.container{max-width:var(--maxw);margin:auto;padding:0 1rem}
+.container{
+  max-width:var(--maxw);
+  margin:auto;
+  padding:0 1rem;
+}
 
 /* Espacio vertical de las secciones y margen para que no queden tapadas por el header */
 .section{
@@ -31,13 +36,15 @@ body{
   scroll-margin-top:90px; /* altura aproximada de la barra */
 }
 
+/* HEADER */
+
 .site-header{
   position:sticky;
   top:0;
-  background:rgba(14,15,19,.8);
+  background:#0e0f13;           /* opaco para que nada se vea a través */
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(255,255,255,.06);
-  z-index:1000; /* para que quede por encima de la línea de tiempo */
+  z-index:1000;                 /* siempre por encima del resto */
 }
 
 .header-inner{
@@ -65,6 +72,8 @@ body{
   color:var(--text);
   background:rgba(122,162,255,.12);
 }
+
+/* HERO */
 
 .hero{
   display:grid;
@@ -95,6 +104,8 @@ body{
   }
 }
 
+/* BENEFICIOS */
+
 .benefits{
   display:grid;
   gap:.8rem;
@@ -109,6 +120,8 @@ body{
   border-radius:1rem;
   border:1px solid rgba(255,255,255,.06);
 }
+
+/* GALERÍA */
 
 .gallery{
   display:grid;
@@ -134,15 +147,17 @@ body{
   color:var(--muted);
 }
 
-/* Timeline horizontal */
+/* TIMELINE HORIZONTAL */
+
 .timeline-minimal{
   position:relative;
   display:flex;
   gap:2rem;
   justify-content:space-between;
   overflow-x:auto;
-  padding-top:2.25rem;
+  padding-top:2.75rem;   /* un poco más de espacio por arriba */
   padding-bottom:.5rem;
+  z-index:0;
 }
 
 .timeline-minimal::before{
@@ -150,10 +165,11 @@ body{
   position:absolute;
   left:0;
   right:0;
-  top:1.55rem;
+  top:2.1rem;            /* bajamos ligeramente la línea */
   height:3px;
   background:rgba(122,162,255,.45);
   border-radius:3px;
+  z-index:-1;            /* siempre por detrás de todo, incluido el header */
 }
 
 .timeline-minimal details{
@@ -233,6 +249,8 @@ body{
   color:var(--muted);
   margin:0;
 }
+
+/* ENLACES / FOOTER */
 
 .links a{
   color:var(--accent);
